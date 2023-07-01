@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Photo Gallery</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    /* Additional CSS styles */
+    .gallery {
+      background-color:black;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      grid-gap: 5px; /* Gap between images */
+    }
+    h1{
+        font-size: 60px;
+        text-align: center;
+        background-color:black;
+        color: white;
+    }
+    
+    .gallery img {
+      width: 80%;
+      height: 80%;
+      cursor: pointer;
+    }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 50px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+    
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+    }
+    
+    .close {
+      color: #fff;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .close:hover {
+      color: #ccc;
+    }
+    
+    .prev,
+    .next {
+      color: #fff;
+      position: absolute;
+      top: 50%;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transform: translateY(-50%);
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+    }
+    
+    .prev {
+      left: 20px;
+    }
+    
+    .next {
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>MY GALLERY</h1>
+  <div class="gallery">
+    <img src="image1.jpg" alt="Image 1">
+    <img src="image2.jpg" alt="Image 2">
+    <img src="image3.jpg" alt="Image 3">
+    <img src="image4.jpg" alt="Image 4">
+    <img src="image5.jpg" alt="Image 5">
+    <img src="image6.jpg" alt="Image 6">
+    <img src="image7.jpg" alt="Image 7">
+    <img src="image8.jpg" alt="Image 8">
+    <img src="image9.jpg" alt="Image 9">
+    <img src="image10.jpg" alt="Image 10">
+    <img src="image11.jpg" alt="Image 11">
+    <img src="image12.jpg" alt="Image 12">
+    <img src="image13.jpg" alt="Image 13">
+    <img src="image14.jpg" alt="Image 14">
+    <img src="image15.jpg" alt="Image 15">
+  </div>
+
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+    <span class="prev">&lt;</span>
+    <span class="next">&gt;</span>
+  </div>
+
+  <script>
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("modalImg");
+    var images = document.querySelectorAll(".gallery img");
+    var span = document.getElementsByClassName("close")[0];
+    var prevBtn = document.getElementsByClassName("prev")[0];
+    var nextBtn = document.getElementsByClassName("next")[0];
+    var currentIndex = 0;
+
+    for (var i = 0; i < images.length; i++) {
+      images[i].addEventListener("click", function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+
+        // Get the index of the clicked image
+        currentIndex = Array.from(images).indexOf(this);
+      });
+    }
+
+    span.addEventListener("click", function() {
+      modal.style.display = "none";
+    });
+
+    prevBtn.addEventListener("click", function() {
+      // Go to the previous image
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      modalImg.src = images[currentIndex].src;
+    });
+
+    nextBtn.addEventListener("click", function() {
+      // Go to the next image
+      currentIndex = (currentIndex + 1) % images.length;
+      modalImg.src = images[currentIndex].src;
+    });
+
+    modal.addEventListener("click", function(e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    document.addEventListener("keydown", function(e) {
+      if (modal.style.display === "block") {
+        if (e.key === "ArrowLeft") {
+          // Go to the previous image
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          modalImg.src = images[currentIndex].src;
+        } else if (e.key === "ArrowRight") {
+          // Go to the next image
+          currentIndex = (currentIndex + 1) % images.length;
+          modalImg.src = images[currentIndex].src;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

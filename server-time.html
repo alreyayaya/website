@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function displayServerTime() {
+          const serverTimeElement = document.getElementById('server-time');
+          const serverTime = new Date().toLocaleTimeString();
+          serverTimeElement.textContent = serverTime;
+        }
+      
+        setInterval(displayServerTime, 1000);
+      </script>
+      
+  <title>Server Time</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    /* Additional CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: pink;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: beige;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    h1 {
+      text-align: center;
+      margin-top: 0;
+    }
+    
+    .clock {
+      text-align: center;
+      font-size: 60px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Server Time</h1>
+    <div class="clock" id="clock"></div>
+  </div>
+
+  <script>
+    // Server time display script
+    function updateClock() {
+      var clock = document.getElementById('clock');
+      var currentTime = new Date();
+      var hours = currentTime.getHours();
+      var minutes = currentTime.getMinutes();
+      var seconds = currentTime.getSeconds();
+      var meridiem = hours >= 12 ? 'PM' : 'AM';
+
+      hours = hours % 12;
+      hours = hours ? hours : 12; // Convert 0 to 12
+
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+      var timeString = hours + ':' + minutes + ':' + seconds + ' ' + meridiem;
+      clock.textContent = timeString;
+    }
+
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>

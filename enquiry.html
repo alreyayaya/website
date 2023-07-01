@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enquiry Form</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    /* Additional CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: pink;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: beige;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    h1 {
+      text-align: center;
+      margin-top: 0;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    input[type="text"],
+    textarea {
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    
+    textarea {
+      height: 100px;
+    }
+    
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #860d43;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #591132;
+    }
+  </style>
+</head>
+<body>
+    <section>
+        <div class="box" onclick="location.href='enquiry.html';">
+          <h2>Enquiry</h2>
+        </div>
+      </section>
+      
+  <div class="container">
+    <h1>Enquiry Form</h1>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+      
+      <label for="email">Email:</label>
+      <input type="text" id="email" required>
+      
+      <label for="message">Message:</label>
+      <textarea id="message" required></textarea>
+      
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>

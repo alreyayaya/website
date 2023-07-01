@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url(a1.jpg);
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: black;
+      font-size: 50px;
+      margin-bottom: 30px;
+    }
+
+    .contact-info {
+      text-align: left;
+      border: 5px solid black;
+      border-radius: 30px;
+      padding: 25px;
+      margin-bottom: 10px;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      font-size: 15px;
+      font-family: 'Times New Roman', Times, serif;
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Contact Information</h1>
+
+  <div class="contact-info">
+    <p>Phone: <span id="phone"></span></p>
+  </div>
+
+  <div class="contact-info">
+    <p>Email: <span id="email"></span></p>
+  </div>
+
+  <div class="contact-info">
+    <p>LinkedIn: <a href="#" id="linkedin">LinkedIn</a></p>
+  </div>
+
+  <div class="contact-info">
+    <p>GitHub: <a href="#" id="github">GitHub</a></p>
+  </div>
+
+  <script>
+    // Replace the placeholder values with your actual contact information
+    document.getElementById('phone').textContent = '+917348867700';
+    document.getElementById('email').textContent = 'alreyap@gmail.com';
+    document.getElementById('linkedin').href = 'https://www.linkedin.com/in/alreya-patrao-a41344225';
+    document.getElementById('github').href = 'https://github.com/alreyayaya';
+  </script>
+</body>
+</html>

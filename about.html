@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ABOUT ME</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    /* Additional CSS styles */
+    body {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 35px;
+      margin: 0;
+      padding: 0;
+      background-image: url("aa.jpg");
+    }
+    
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      border: 10px solid #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 30px;
+    }
+    
+    .image-container {
+      flex: 1;
+      text-align: center;
+      padding-right: 20px;
+    }
+    
+    .image-container img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 5px solid #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .content {
+      flex: 1;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 30px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-left: 30px; /* Adjust the margin value as needed */
+    }
+    
+    .content h1 {
+      margin-top: 0;
+      font-size: 50px;
+      text-align: center;
+    }
+    
+    .content p {
+      font-size: 24px;
+      color: #333333;
+      text-align: justify;
+    }
+    
+    .name-box {
+      background-color:black;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 500px;
+      margin-top: 20px;
+    }
+    
+    .name-box h3 {
+      margin: 0;
+      font-size: 30px;
+      color: wheat;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="image-container">
+      <img src="your-image.jpeg" alt="Your Image" onclick="showImage(this.src)">
+      <div class="name-box">
+        <h3>Alreya Edel Patrao</h3>
+      </div>
+    </div>
+    <div class="content">
+      <h1>About Me</h1>
+      <p>I am Alreya. I am currently pursuing my Computer Science and Engineering degree at St. Joseph Engineering College. I hail from Mangalore and completed my schooling from Carmel School and PU from St. Agnes PU College. My love for computers combined with curiosity motivated me to enroll in my current course.</p>
+    </div>
+  </div>
+
+  <script>
+    function showImage(src) {
+      var modal = document.createElement("div");
+      modal.style.position = "fixed";
+      modal.style.zIndex = "9999";
+      modal.style.top = "0";
+      modal.style.left = "0";
+      modal.style.width = "100%";
+      modal.style.height = "100%";
+      modal.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+      modal.style.display = "flex";
+      modal.style.alignItems = "center";
+      modal.style.justifyContent = "center";
+
+      var image = document.createElement("img");
+      image.style.maxWidth = "80%";
+      image.style.maxHeight = "80%";
+      image.style.borderRadius = "10px";
+      image.style.boxShadow = "0 2px 5px rgba(0, 0, 0, 0.3)";
+      image.src = src;
+
+      modal.appendChild(image);
+      document.body.appendChild(modal);
+
+      modal.addEventListener("click", function () {
+        modal.parentNode.removeChild(modal);
+      });
+    }
+  </script>
+</body>
+</html>
